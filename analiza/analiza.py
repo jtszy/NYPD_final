@@ -5,7 +5,7 @@ import pandas as pd
 import dwl
 
 
-def reading_data():
+def reading_data(gdp_path,pop_path,co2_path):
     '''
     wczytywanie baz danych do analizy
     zwraca 3 data framy
@@ -14,7 +14,7 @@ def reading_data():
     current_path = os.getcwd()
 
     # wczytywanie danych o PKB
-    path = current_path + "/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4751562/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4751562.csv"
+    path = current_path + gdp_path
 
     gdp_data = pd.read_csv(path, header=2)
 
@@ -26,7 +26,7 @@ def reading_data():
     gdp_data['data_type'] = pd.Series('gdp', index=gdp_data.index)
 
     # wczytywanie danych o populacji
-    path = current_path + "/API_SP.POP.TOTL_DS2_en_csv_v2_4751604/API_SP.POP.TOTL_DS2_en_csv_v2_4751604.csv"
+    path = current_path + pop_path
 
     pop_data = pd.read_csv(path, header=2)
 
@@ -38,7 +38,7 @@ def reading_data():
     pop_data['data_type'] = pd.Series('pop', index=pop_data.index)
 
     # wczytywanie danych o emisji co2
-    path = current_path + "/co2-fossil-by-nation_zip/data/fossil-fuel-co2-emissions-by-nation_csv.csv"
+    path = current_path + co2_path
 
     co2_data = pd.read_csv(path)
 
