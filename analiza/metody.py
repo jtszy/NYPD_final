@@ -1,0 +1,4 @@
+'''
+Pobieranie tekstu
+'''
+
